@@ -1,0 +1,74 @@
+<div>
+	<div class="modal-header">
+		<h3>{{ 'Generic.Header.Candidate information' | translate }}</h3>
+	</div>
+	<div class="modal-body">
+		<form name="candidateForm" ng-submit="save()" role="form">
+		
+			<div class="form-group">
+				<label for="candidate.LastName">{{ 'Generic.Field.Last name' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="candidate.LastName" id="candidate.LastName" name="candidate.LastName" maxlength="50" autofocus required />
+				<p ng-show="candidateForm['candidate.LastName'].$invalid && !candidateForm['candidate.LastName'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+			
+			<div class="form-group">
+				<label for="candidate.FirstName">{{ 'Generic.Field.First name' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="candidate.FirstName" id="candidate.FirstName" name="candidate.FirstName" maxlength="50" required />
+				<p ng-show="candidateForm['candidate.FirstName'].$invalid && !candidateForm['candidate.FirstName'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+
+			<div class="form-group">
+				<label for="candidate.Number">{{ 'Generic.Field.Number' | translate }}:</label>
+				<input type="number" class="form-control" ng-model="candidate.Number" id="candidate.Number" name="candidate.Number" required />
+				<p ng-show="candidateForm['candidate.Number'].$invalid && !candidateForm['candidate.Number'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+			
+			<div class="form-group">
+				<label for="candidate.Email">{{ 'Generic.Field.Email' | translate }}:</label>
+				<input type="email" class="form-control" ng-model="candidate.Email" id="candidate.Email" name="candidate.Email" maxlength="250" required />
+				<p ng-show="candidateForm['candidate.Email'].$invalid && !candidateForm['candidate.Email'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+
+			<div class="form-group">
+				<label for="candidate.DistrictId">{{ 'Generic.Field.District' | translate }}:</label>
+				<select class="form-control" ng-model="candidate.DistrictId" id="candidate.DistrictId" name="candidate.DistrictId" ng-options="district.Id as district.Name | translate for district in districts" required></select>
+				<p ng-show="candidateForm['candidate.DistrictId'].$invalid && !candidateForm['candidate.DistrictId'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>			
+			
+			<div class="form-group">
+				<label for="candidate.PartyId">{{ 'Generic.Field.Party' | translate }}:</label>
+				<select class="form-control" ng-model="candidate.PartyId" id="candidate.PartyId" name="candidate.PartyId" ng-options="party.Id as party.Name | translate for party in parties" required></select>
+				<p ng-show="candidateForm['candidate.PartyId'].$invalid && !candidateForm['candidate.PartyId'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>	
+
+			<div class="form-group">
+				<label for="candidate.Homepage">{{ 'Generic.Field.Home page' | translate }}:</label>
+				<input type="url" class="form-control" ng-model="candidate.Homepage" id="candidate.Homepage" name="candidate.Homepage" maxlength="250" />
+				<p ng-show="candidateForm['candidate.Homepage'].$invalid && !candidateForm['candidate.Homepage'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+
+			<div class="form-group">
+				<label for="candidate.Facebook">{{ 'Generic.Field.Facebook' | translate }}:</label>
+				<input type="url" class="form-control" ng-model="candidate.Facebook" id="candidate.Facebook" name="candidate.Facebook" maxlength="250" />
+				<p ng-show="candidateForm['candidate.Facebook'].$invalid && !candidateForm['candidate.Facebook'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+
+			<div class="form-group">
+				<label for="candidate.Twitter">{{ 'Generic.Field.Twitter' | translate }}:</label>
+				<input type="url" class="form-control" ng-model="candidate.Twitter" id="candidate.Twitter" name="candidate.Twitter" maxlength="250" />
+				<p ng-show="candidateForm['candidate.Twitter'].$invalid && !candidateForm['candidate.Twitter'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>
+
+			<div class="form-group">
+				<label for="candidate.Description">{{ 'Generic.Field.Description' | translate }}:</label>
+				<textarea class="form-control" ng-model="candidate.Description" id="candidate.Description" name="candidate.Description"></textarea>
+				<p ng-show="candidateForm['candidate.Description'].$invalid && !candidateForm['candidate.Description'].$pristine" class="help-block">{{ 'Generic.Field.Required' | translate }}</p>
+			</div>				
+
+		</form>
+	</div>	
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="save()" ng-disabled="candidateForm.$invalid">{{ 'Generic.Button.Save' | translate }}</button>
+		<button class="btn btn-warning" ng-click="cancel()">{{ 'Generic.Button.Cancel' | translate }}</button>
+	</div>
+</div>

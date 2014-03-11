@@ -1,0 +1,24 @@
+<div>
+	<div class="modal-header">
+		<h3>{{ 'Generic.Header.Party information' | translate }}</h3>
+	</div>
+	<div class="modal-body">
+		<form name="partyForm" ng-submit="save()" role="form">
+		
+			<div class="form-group">
+				<label for="party.Name">{{ 'Generic.Field.Name' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="party.Name" id="party.Name" maxlength="255" autofocus required />
+			</div>
+
+			<div class="form-group">
+				<label for="party.CountryId">{{ 'Generic.Field.Country' | translate }}:</label>
+				<select class="form-control" ng-model="party.CountryId" id="party.CountryId" ng-options="country.Id as country.Name for country in countries" required></select>
+			</div>
+
+			</form>
+	</div>	
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="save()" ng-disabled="partyForm.$invalid">{{ 'Generic.Button.Save' | translate }}</button>
+		<button class="btn btn-warning" ng-click="cancel()">{{ 'Generic.Button.Cancel' | translate }}</button>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div>
+	<div class="modal-header">
+		<h3>{{ 'Generic.Header.Question information' | translate }}</h3>
+	</div>
+	<div class="modal-body">
+		<form name="questionForm" ng-submit="save()" role="form">
+		
+			<div class="form-group">
+				<label for="QuestionSubject">{{ 'Generic.Field.Subject' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="question.Subject" id="QuestionSubject" maxlength="255" autofocus required />
+			</div>
+			
+			<div class="form-group">
+				<label for="QuestionSubjectTranslated">{{ 'Generic.Field.Translated' | translate }}:</label>
+				<input type="text" class="form-control" id="QuestionSubjectTranslated" maxlength="255" value="{{question.Subject | translate }}" disabled="disabled" />
+			</div>
+			
+			<div class="form-group">
+				<label for="QuestionOrderNumber">{{ 'Generic.Field.Order number' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="question.OrderNumber" id="QuestionOrderNumber" required />
+			</div>			
+
+			<div class="form-group">
+				<label for="QuestionDescription">{{ 'Generic.Field.Description' | translate }}:</label>
+				<input type="text" class="form-control" ng-model="question.Description" id="QuestionDescription" maxlength="255" />
+			</div>
+			
+			<div class="form-group">
+				<label for="QuestionDescriptionTranslated">{{ 'Generic.Field.Description' | translate }}:</label>
+				<textarea class="form-control" value="{{question.Description | translate }}" id="QuestionDescriptionTranslated" disabled="disabled"></textarea>
+			</div>
+			
+		</form>
+	</div>	
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="save()" ng-disabled="questionForm.$invalid">{{ 'Generic.Button.Save' | translate }}</button>
+		<button class="btn btn-warning" ng-click="cancel()">{{ 'Generic.Button.Cancel' | translate }}</button>
+	</div>
+</div>

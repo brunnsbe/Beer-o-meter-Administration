@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-xs-6">
+		<div class="btn-group">
+			<button ng-click="open()" class="btn btn-primary">{{ 'Generic.Button.Create new question' | translate }}</button>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<pagination total-items="pagination.totalItems" items-per-page="pagination.itemsPerPage" page="pagination.currentPage" on-select-page="pagination.setPage(page)" class="pull-right" previous-text="{{'Generic.Button.Previous'|translate}}"></pagination>
+	</div>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<colgroup>
+			<col style="width: 27px" />
+			<col style="width: 27px" />
+			<col style="width: 27px" />
+			<col style="width: 27px" />
+			<col />
+			<col />
+			<col />
+			<col />
+		</colgroup>	
+		<thead>
+			<tr>
+				<th><span class="glyphicon glyphicon-pencil" tooltip="{{ 'Generic.Button.Edit question' | translate }}"></span></th>
+				<th><span class="glyphicon glyphicon-remove" tooltip="{{ 'Generic.Button.Delete question' | translate }}"></span></th>
+				<th><span class="glyphicon glyphicon-arrow-up" tooltip="{{ 'Generic.Button.Change order up' | translate }}"></span></th>
+				<th><span class="glyphicon glyphicon-arrow-down" tooltip="{{ 'Generic.Button.Change order down' | translate }}"></span></th>
+				<th>{{ 'Generic.Field.Subject' | translate }}</th>
+				<th>{{ 'Generic.Field.Translated' | translate }}</th>
+				<th>{{ 'Generic.Field.Description' | translate }}</th>
+				<th>{{ 'Generic.Field.Translated' | translate }}</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="question in questions | orderBy:order">
+				<td>
+					<button ng-click="open(question)" class="btn btn-primary btn-sm glyphicon glyphicon-pencil" data-text="false" tooltip="{{ 'Generic.Button.Edit question' | translate }}"></button>
+				</td>
+				<td>
+					<button ng-click="delete(question)" class="btn btn-danger btn-sm glyphicon glyphicon-remove" data-text="false" tooltip="{{ 'Generic.Button.Delete question' | translate }}"></button>						
+				</td>
+				<td>
+					<button ng-click="changeOrder(question, -1)" class="btn btn-info btn-sm glyphicon glyphicon-arrow-up" data-text="false" tooltip="{{ 'Generic.Button.Delete question' | translate }}"></button>						
+				</td>
+				<td>
+					<button ng-click="changeOrder(question, 1)" class="btn btn-info btn-sm glyphicon glyphicon-arrow-down" data-text="false" tooltip="{{ 'Generic.Button.Delete question' | translate }}"></button>						
+				</td>				
+				<td>{{question.Subject}}</td>
+				<td>{{question.Subject | translate}}</td>
+				<td>{{question.Description}}</td>
+				<td>{{question.Description | translate}}</td>				
+			</tr>
+		</tbody>
+	</table>
+</div>
