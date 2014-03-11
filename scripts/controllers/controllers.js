@@ -821,8 +821,6 @@ app.controller('CandidatesEditCtrl', ['$scope', '$route', '$modalInstance', 'can
 			$scope.candidate.PartyId = response[0].Id;
 		}
 	});	
-
-	console.log($scope);
 	
 	$scope.save = function() {
 		$scope.candidate.$save(
